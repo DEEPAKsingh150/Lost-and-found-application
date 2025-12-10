@@ -1,12 +1,13 @@
 .add-item-page {
   padding: 40px 0;
+  background-image:url('c:\Users\Admin\OneDrive\Pictures\lost 2.webp');
   min-height: calc(100vh - 70px);
 }
 
 .add-item-container {
   max-width: 800px;
   margin: 0 auto;
-  background: white;
+  background: hsl(0, 0%, 100%);
   border-radius: 12px;
   padding: 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

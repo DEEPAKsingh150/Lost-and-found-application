@@ -1,27 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const auth = require('middleware/auth');
-const Item = require('models/Item');
+const auth = require('../middleware/auth');
+const Item = require('../models/item');
 
 // @route   GET api/items
 // @desc    Get all items
 // @access  Public
-router.get('/', async (req, res) => {
+router.get('/user/my-items', auth, async (req, res) => {
   try {
-    const { status, category, search } = req.query;
-    let query = {};
-
-    if (status) query.status = status;
-    if (category) query.category = category;
-    if (search) {
-      query.$or = [
-        { title: { $regex: search, $options: 'i' } },
-        { description: { $regex: search, $options: 'i' } }
-      ];
-    }
-
-    const items = await Item.find(query).sort({ createdAt: -1 });
+    const items = await Item.find({ userId: req.user.id }).sort({ createdAt: -1 });
     res.json(items);
   } catch (err) {
     console.error(err.message);

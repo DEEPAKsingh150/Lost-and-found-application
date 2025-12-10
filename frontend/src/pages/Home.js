@@ -69,8 +69,8 @@ const Home = ({ user }) => {
     <div className="home-page">
       <div className="hero-section">
         <div className="container">
-          <h1>🔍 Lost & Found</h1>
-          <p>Help reunite people with their lost belongings</p>
+          <h1> Lost & Found</h1>
+          <p>Lost something? Let’s bring it back where it belongs.</p>
         </div>
       </div>
 
